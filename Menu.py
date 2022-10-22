@@ -7,7 +7,7 @@ class Menu:
         self.exit = False
 
 #A függvény tömbben tárolja a menüpontokat, viszont módosítás esetén a navigációs logika indexelését is módosítani kell!!
-    def menuprint(self):
+    def PrintMenu(self):
         pyconio.clrscr()
         pyconio.write(f'|{"Étteremkezelő Rendszer":^25}|\n')
         menupontok = ['Asztalok megadása', 'Menü rögzítése', 'Új asztal nyitása', 'Rendelés felvétele',
@@ -23,11 +23,11 @@ class Menu:
 
 
 #Menü navigációs függvény; mindig vár egy billentyűleütést, és indexeléssel vált menüpontot, enter lenyomására visszatér a menüindex-el
-    def menuinteract(self):
+    def NavMenu(self):
         pyconio.rawmode()
         exit = False
         while not exit:
-            self.menuprint()
+            self.PrintMenu()
             key = pyconio.getch()
             if key == pyconio.DOWN and self.navseq < 6:
                 self.navseq+=1
