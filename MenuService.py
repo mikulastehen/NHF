@@ -13,7 +13,7 @@ class Menu:
 
     # A függvény tömbben tárolja a menüpontokat, viszont módosítás esetén a navigációs logika indexelését is
     # módosítani kell!!
-    def PrintMenu(self):
+    def FormatMenu(self):
         menuelements = self.menuelements
         menutitle = self.menutitle
         pyconio.clrscr()
@@ -29,12 +29,12 @@ class Menu:
         pyconio.flush()
 
     # Menü navigációs függvény; mindig vár egy billentyűleütést, és indexeléssel vált menüpontot, enter lenyomására visszatér a menüindex-el
-    def NavMenu(self):
+    def PrintMenu(self):
         menuelements = self.menuelements
         pyconio.rawmode()
         exit = False
         while not exit:
-            self.PrintMenu()
+            self.FormatMenu()
             key = pyconio.getch()
             if key == pyconio.DOWN and self.navseq < len(menuelements)-1:
                 self.navseq += 1
