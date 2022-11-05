@@ -4,7 +4,7 @@ import pyconio
 # Menü osztály a menü megjelenítéséért és kezeléséért; A menü bemeneti paraméternek vár egy kezdeti menükurzor
 # pozíciót, és visszatér egy menüpont index-el
 
-class Menu:
+class Navigation:
     def __init__(self, navseq, menuelements, menutitle):
         self.navseq = navseq
         self.exit = False
