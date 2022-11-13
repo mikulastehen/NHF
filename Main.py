@@ -9,6 +9,7 @@ TableNavigation = NavigationService.Navigation(0, NavigationLayouts.TableSection
 Tables = []
 Menu = []
 
+#Ezt még függvénybe kell rendezni!!!
 while True:
     navseq = MainNavigation.PrintMenu()
     if navseq == 0:

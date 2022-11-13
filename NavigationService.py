@@ -2,7 +2,7 @@ import pyconio
 
 
 # Menü osztály a menü megjelenítéséért és kezeléséért; A menü bemeneti paraméternek vár egy kezdeti menükurzor
-# pozíciót, és visszatér egy menüpont index-el
+# pozíciót, elemlistát, címet és visszatér egy menüpont index-el
 
 class Navigation:
     def __init__(self, navseq, menuelements, menutitle):
@@ -11,8 +11,7 @@ class Navigation:
         self.menuelements = menuelements
         self.menutitle = menutitle
 
-    # A függvény tömbben tárolja a menüpontokat, viszont módosítás esetén a navigációs logika indexelését is
-    # módosítani kell!!
+    #25 karakteres hard limit, max majd változóba rakom az egyszerűbb módosítás miatt
     def FormatMenu(self):
         menuelements = self.menuelements
         menutitle = self.menutitle
@@ -29,6 +28,7 @@ class Navigation:
         pyconio.flush()
 
     # Menü navigációs függvény; mindig vár egy billentyűleütést, és indexeléssel vált menüpontot, enter lenyomására visszatér a menüindex-el
+    #ez igy faszság, nem kell az egész listát átadni ha úgy is csak a hosszát fogom használni, elég azt átadni a teljes lista helyett
     def PrintMenu(self):
         menuelements = self.menuelements
         pyconio.rawmode()

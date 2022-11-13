@@ -33,11 +33,11 @@ def TableRemove(Tables):
             break
     return Tables
 
-#FoodMenu Functions
+#FoodMenu Functions (WIP)
 def PrintMenu():
     pass
 
-#Foglaltsági Térkép Functions
+#Foglaltsági Térkép Functions (WIP)
 def PrintRestaurant(Tables: TableData):
     maxrow = 20
     maxcolumn = 20
