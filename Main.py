@@ -10,12 +10,12 @@ ReserveNavigation = NavigationService.Navigation(0, NavigationLayouts.ReserveSec
 Tables = []
 Menu = []
 
-
 while True:
 
     #főmenü kiírása
     os.system('mode con: cols=27 lines=20')
-    navseq = MainNavigation.PrintMenu()
+    #navseq = MainNavigation.PrintMenu()
+    #navseq = 6
     if navseq == 0:
         #Asztal almenü
         while True:
@@ -57,6 +57,7 @@ while True:
         Functions.PrintRestaurant(Tables)
 
     elif navseq == 6:
+        Functions.SaveTables(Tables)
         exit()
 
 
