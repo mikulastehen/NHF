@@ -3,7 +3,9 @@ from time import sleep
 
 import TableData
 import pyconio
-
+helyi_konyvtar = os.path.dirname(os.path.realpath(__file__))
+load_data = os.path.join(helyi_konyvtar, 'adatbetoltes.txt')
+tablefile = os.path.join(helyi_konyvtar, 'tables.txt')
 
 #Table functions
 def TableAdd(Tables):
@@ -94,15 +96,18 @@ def PrintRestaurant(Tables: TableData):
         print('|')
     print('*'*30)
 
-    pyconio.textbackground(pyconio.BROWN)
-    pyconio.textcolor(pyconio.BLACK)
-    for x in Tables:
-        pyconio.gotoxy(3*x.column-1, 3*x.row-1)
+    def PrintTable(x):
+        pyconio.textbackground(pyconio.BROWN)
+        pyconio.textcolor(pyconio.BLACK)
+        pyconio.gotoxy(3 * x.column - 1, 3 * x.row - 1)
         print(x.TableIdent())
-        pyconio.gotoxy(3*x.column-1, 3*x.row)
+        pyconio.gotoxy(3 * x.column - 1, 3 * x.row)
         print(x.SIdent())
-    pyconio.textbackground(pyconio.BLACK)
-    pyconio.textcolor(pyconio.LIGHTGRAY)
+        pyconio.textbackground(pyconio.BLACK)
+        pyconio.textcolor(pyconio.LIGHTGRAY)
+
+    for x in Tables:
+        PrintTable(x)
     input()
 
 #Asztalfoglalás Functions
@@ -118,3 +123,17 @@ def ReserveTable(Tables):
     print('Az asztal foglalása sikertelen!')
     input()
     return Tables
+
+#FileManagement
+def SaveTables(Tables):
+    with open(tablefile, 'wt') as file:
+        for x in Tables:
+            file.write(x.TableIdent()+x.SIdent()+',')
+
+
+def LoadTables():
+    with open(tablefile, 'rt') as file:
+        data = file.read().split(',')
+        for x in data:
+            print(x)
+
